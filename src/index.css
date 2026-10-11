@@ -1,0 +1,629 @@
+@import "tailwindcss";
+
+@layer base {
+  /* Theme 1 (Light): Penske Crisp White */
+  :root, [data-theme="light"] {
+    --bg-main: #f8fafc;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f1f5f9;
+    --border-color: #e2e8f0;
+    --border-subtle: #cbd5e1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --text-muted: #94a3b8;
+    --racing-blue: #1d4ed8;
+    --racing-blue-hover: #1e40af;
+    --racing-accent: #1d4ed8;
+    --racing-red: #dc2626;
+    --racing-amber: #d97706;
+    --racing-emerald: #059669;
+    --font-heading: 'Outfit', sans-serif;
+    --font-royal: 'Cinzel', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  /* Theme 2 (Light): Daytona Speed Silver */
+  [data-theme="daytona-light"] {
+    --bg-main: #f1f5f9;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #e2e8f0;
+    --border-color: #cbd5e1;
+    --border-subtle: #94a3b8;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --racing-blue: #dc2626;
+    --racing-blue-hover: #b91c1c;
+    --racing-accent: #dc2626;
+    --racing-red: #dc2626;
+    --racing-amber: #f59e0b;
+    --racing-emerald: #10b981;
+  }
+
+  /* Theme 3 (Light): Heritage Trophy Sand / Warm Cream */
+  [data-theme="heritage-cream"] {
+    --bg-main: #faf8f5;
+    --bg-surface: #ffffff;
+    --bg-surface-elevated: #f4efe6;
+    --border-color: #e6dfd3;
+    --border-subtle: #d3c9b8;
+    --text-primary: #1c1917;
+    --text-secondary: #57534e;
+    --text-muted: #a8a29e;
+    --racing-blue: #d97706;
+    --racing-blue-hover: #b45309;
+    --racing-accent: #d97706;
+    --racing-red: #dc2626;
+    --racing-amber: #d97706;
+    --racing-emerald: #059669;
+  }
+
+  /* Theme 4 (Dark): Stealth Carbon */
+  [data-theme="dark"] {
+    --bg-main: #090d16;
+    --bg-surface: #0f172a;
+    --bg-surface-elevated: #1e293b;
+    --border-color: #1e293b;
+    --border-subtle: #334155;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --racing-blue: #2563eb;
+    --racing-blue-hover: #3b82f6;
+    --racing-accent: #3b82f6;
+    --racing-red: #ef4444;
+    --racing-amber: #f59e0b;
+    --racing-emerald: #10b981;
+  }
+
+  /* Theme 5 (Dark): Victory Lane Red */
+  [data-theme="victory-red"] {
+    --bg-main: #0c0d10;
+    --bg-surface: #14151b;
+    --bg-surface-elevated: #1f212a;
+    --border-color: #2b2e3b;
+    --border-subtle: #3d4254;
+    --text-primary: #ffffff;
+    --text-secondary: #a1a1aa;
+    --text-muted: #71717a;
+    --racing-blue: #ef4444;
+    --racing-blue-hover: #dc2626;
+    --racing-accent: #ef4444;
+    --racing-red: #ef4444;
+    --racing-amber: #f59e0b;
+    --racing-emerald: #10b981;
+  }
+
+  /* Theme 6 (Dark): Rocket Chassis Titanium */
+  [data-theme="rocket-titanium"] {
+    --bg-main: #0a0f14;
+    --bg-surface: #111a24;
+    --bg-surface-elevated: #192635;
+    --border-color: #213347;
+    --border-subtle: #2d4560;
+    --text-primary: #f0fdf4;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --racing-blue: #06b6d4;
+    --racing-blue-hover: #0891b2;
+    --racing-accent: #06b6d4;
+    --racing-red: #f43f5e;
+    --racing-amber: #fbbf24;
+    --racing-emerald: #10b981;
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: var(--font-heading);
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+}
+
+/* Automotive Design System Utilities */
+.bg-theme-main { background-color: var(--bg-main); }
+.bg-theme-surface { background-color: var(--bg-surface); }
+.bg-theme-elevated { background-color: var(--bg-surface-elevated); }
+.border-theme { border-color: var(--border-color); }
+.border-theme-subtle { border-color: var(--border-subtle); }
+.text-theme-primary { color: var(--text-primary); }
+.text-theme-secondary { color: var(--text-secondary); }
+.text-theme-muted { color: var(--text-muted); }
+.text-theme-accent { color: var(--racing-blue); }
+.bg-theme-accent { background-color: var(--racing-blue); }
+.border-theme-accent { border-color: var(--racing-blue); }
+
+/* High-End Clean Cards */
+.clean-card {
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05), 0 1px 2px -1px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.clean-card:hover {
+  border-color: var(--racing-blue);
+  box-shadow: 0 10px 25px -5px rgba(29, 78, 216, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+}
+
+/* Professional Racing Buttons */
+.btn-racing-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  background-color: var(--racing-blue);
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  box-shadow: 0 2px 4px rgba(29, 78, 216, 0.2);
+}
+
+.btn-racing-primary:hover {
+  background-color: var(--racing-blue-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(29, 78, 216, 0.3);
+}
+
+.btn-racing-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: var(--text-primary);
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btn-racing-secondary:hover {
+  background-color: var(--bg-surface-elevated);
+  border-color: var(--border-subtle);
+  transform: translateY(-1px);
+}
+
+/* Micro badges */
+.badge-clean {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  border-radius: 6px;
+}
+
+.badge-verified {
+  background-color: rgba(5, 150, 105, 0.1);
+  color: #059669;
+  border: 1px solid rgba(5, 150, 105, 0.25);
+}
+
+.badge-racing {
+  background-color: rgba(29, 78, 216, 0.1);
+  color: #1d4ed8;
+  border: 1px solid rgba(29, 78, 216, 0.25);
+}
+
+/* Ticker */
+@keyframes smoothTicker {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+
+.smooth-ticker {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: smoothTicker 32s linear infinite;
+}
+
+.smooth-ticker:hover {
+  animation-play-state: paused;
+}
+
+/* ========================================================
+   UIVERSE.IO 3D CLIENT DRIVER CARD ANIMATION
+   ======================================================== */
+.uiverse-parent {
+  width: 320px;
+  min-width: 300px;
+  height: 350px;
+  perspective: 1000px;
+  flex-shrink: 0;
+}
+
+.uiverse-card {
+  height: 100%;
+  border-radius: 40px;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transform-style: preserve-3d;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 20px 30px -10px, rgba(0, 0, 0, 0.06) 0px 10px 15px -5px;
+}
+
+.uiverse-glass {
+  transform-style: preserve-3d;
+  position: absolute;
+  inset: 8px;
+  border-radius: 36px;
+  border-top-right-radius: 90px;
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.94) 100%);
+  transform: translate3d(0px, 0px, 25px);
+  border-left: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.9);
+  transition: all 0.5s ease-in-out;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+[data-theme="dark"] .uiverse-glass,
+[data-theme="victory-red"] .uiverse-glass,
+[data-theme="rocket-titanium"] .uiverse-glass {
+  background: linear-gradient(0deg, rgba(15, 23, 42, 0.75) 0%, rgba(30, 41, 59, 0.94) 100%);
+  border-left: 1px solid rgba(255, 255, 255, 0.15);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.uiverse-content {
+  padding: 72px 42px 0px 22px;
+  transform: translate3d(0, 0, 30px);
+}
+
+.uiverse-content .title {
+  display: block;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 1.25;
+}
+
+.uiverse-content .text {
+  display: block;
+  font-size: 12.5px;
+  margin-top: 12px;
+  line-height: 1.5;
+}
+
+.uiverse-bottom {
+  padding: 10px 14px;
+  transform-style: preserve-3d;
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translate3d(0, 0, 30px);
+}
+
+.uiverse-bottom .view-more {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  justify-content: flex-end;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+
+.uiverse-bottom .view-more:hover {
+  transform: translate3d(0, 0, 12px);
+}
+
+.uiverse-bottom .social-buttons-container {
+  display: flex;
+  gap: 8px;
+  transform-style: preserve-3d;
+}
+
+.uiverse-bottom .social-buttons-container .social-button {
+  width: 30px;
+  aspect-ratio: 1;
+  padding: 4px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 50%;
+  border: none;
+  display: grid;
+  place-content: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 5px 8px -2px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.uiverse-bottom .social-buttons-container .social-button:first-child {
+  transition: transform 0.2s ease-in-out 0.4s, box-shadow 0.2s ease-in-out 0.4s, background 0.2s ease;
+}
+
+.uiverse-bottom .social-buttons-container .social-button:nth-child(2) {
+  transition: transform 0.2s ease-in-out 0.6s, box-shadow 0.2s ease-in-out 0.6s, background 0.2s ease;
+}
+
+.uiverse-bottom .social-buttons-container .social-button:nth-child(3) {
+  transition: transform 0.2s ease-in-out 0.8s, box-shadow 0.2s ease-in-out 0.8s, background 0.2s ease;
+}
+
+.uiverse-logo {
+  position: absolute;
+  right: 0;
+  top: 0;
+  transform-style: preserve-3d;
+}
+
+.uiverse-logo .circle {
+  display: block;
+  position: absolute;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  top: 0;
+  right: 0;
+  box-shadow: rgba(100, 100, 111, 0.15) -8px 8px 16px 0px;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  background: rgba(255, 255, 255, 0.25);
+  transition: all 0.5s ease-in-out;
+}
+
+.uiverse-logo .circle1 {
+  width: 150px;
+  transform: translate3d(0, 0, 20px);
+  top: 8px;
+  right: 8px;
+}
+
+.uiverse-logo .circle2 {
+  width: 120px;
+  transform: translate3d(0, 0, 40px);
+  top: 10px;
+  right: 10px;
+  transition-delay: 0.3s;
+}
+
+.uiverse-logo .circle3 {
+  width: 92px;
+  transform: translate3d(0, 0, 60px);
+  top: 16px;
+  right: 16px;
+  transition-delay: 0.6s;
+}
+
+.uiverse-logo .circle4 {
+  width: 66px;
+  transform: translate3d(0, 0, 80px);
+  top: 22px;
+  right: 22px;
+  transition-delay: 0.9s;
+}
+
+.uiverse-logo .circle5 {
+  width: 42px;
+  transform: translate3d(0, 0, 100px);
+  top: 28px;
+  right: 28px;
+  display: grid;
+  place-content: center;
+  transition-delay: 1.2s;
+  font-weight: 900;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.uiverse-parent:hover .uiverse-card {
+  transform: rotate3d(1, 1, 0, 25deg);
+  box-shadow: rgba(0, 0, 0, 0.25) 30px 45px 25px -30px, rgba(0, 0, 0, 0.12) 0px 20px 25px 0px;
+}
+
+.uiverse-parent:hover .uiverse-card .uiverse-bottom .social-buttons-container .social-button {
+  transform: translate3d(0, 0, 45px);
+  box-shadow: rgba(0, 0, 0, 0.3) -5px 15px 10px 0px;
+}
+
+.uiverse-parent:hover .uiverse-card .uiverse-logo .circle2 {
+  transform: translate3d(0, 0, 60px);
+}
+
+.uiverse-parent:hover .uiverse-card .uiverse-logo .circle3 {
+  transform: translate3d(0, 0, 80px);
+}
+
+.uiverse-parent:hover .uiverse-card .uiverse-logo .circle4 {
+  transform: translate3d(0, 0, 100px);
+}
+
+.uiverse-parent:hover .uiverse-card .uiverse-logo .circle5 {
+  transform: translate3d(0, 0, 120px);
+}
+
+/* ========================================================
+   UIVERSE.IO MECHANICAL RACING SPEED CARD (SLIDING FLAPS)
+   ======================================================== */
+.racing-mech-card {
+  position: relative;
+  height: 330px;
+  width: 250px;
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.racing-mech-card .boxshadow {
+  position: absolute;
+  inset: 0;
+  border: 1px solid var(--racing-blue);
+  transform: scale(0.85);
+  box-shadow: var(--racing-blue) 0px 25px 50px 0px;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border-radius: 16px;
+  opacity: 0.45;
+}
+
+.racing-mech-card:hover .boxshadow {
+  transform: scale(0.95);
+  opacity: 0.8;
+  box-shadow: var(--racing-blue) 0px 35px 70px 0px;
+}
+
+.racing-mech-card .main {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(0deg, #090d16 0%, var(--racing-blue) 55%, #090d16 100%);
+  position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 36px, calc(100% - 36px) 100%, 36px 100%, 0 calc(100% - 36px));
+  clip-path: polygon(0 0, 100% 0, 100% 36px, calc(100% - 36px) 100%, 36px 100%, 0 calc(100% - 36px));
+  box-shadow: var(--racing-blue) 0px 7px 29px 0px;
+  transition: all 0.4s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border-radius: 8px;
+}
+
+.racing-mech-card .main .top-hatch {
+  position: absolute;
+  top: 0px;
+  left: 0;
+  width: 0px;
+  height: 0px;
+  z-index: 3;
+  border-top: 110px solid #06090e;
+  border-left: 125px solid transparent;
+  border-right: 125px solid transparent;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.racing-mech-card .main .side-panel {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 101%;
+  background: #090e17;
+  -webkit-clip-path: polygon(0% 0%, 50% 0, 95% 45%, 100% 100%, 0% 100%);
+  clip-path: polygon(0% 0%, 50% 0, 95% 45%, 100% 100%, 0% 100%);
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86) 0.05s;
+  z-index: 2;
+}
+
+.racing-mech-card .main .left-panel {
+  left: 0;
+}
+
+.racing-mech-card .main .right-panel {
+  right: 0;
+  transform: translateX(50%) scale(-1, 1);
+}
+
+.racing-mech-card .main .speed-car-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+  transition: all 0.4s ease;
+  padding: 16px;
+}
+
+.racing-mech-card .main .speed-car-img {
+  width: 190px;
+  height: auto;
+  transform: translateY(15px) scale(0.9);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.racing-mech-card .main .title-badge {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 75px;
+  font-weight: 900;
+  font-size: 19px;
+  opacity: 0;
+  z-index: 4;
+  white-space: nowrap;
+  letter-spacing: 0.06em;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+  transition: all 0.3s ease-out;
+  text-transform: uppercase;
+}
+
+.racing-mech-card .main .button-container {
+  position: absolute;
+  bottom: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 85%;
+}
+
+.racing-mech-card .main .button-container .racing-btn {
+  padding: 6px 12px;
+  -webkit-clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
+  clip-path: polygon(0 0, 100% 0, 88% 100%, 12% 100%);
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  transition: all 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.racing-mech-card .main .button-container .racing-btn:hover {
+  background: var(--racing-blue);
+  border-color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.racing-mech-card:hover .main {
+  transform: scale(1.06);
+}
+
+.racing-mech-card:hover .main .top-hatch {
+  top: -65px;
+}
+
+.racing-mech-card:hover .main .left-panel {
+  left: -65px;
+}
+
+.racing-mech-card:hover .main .right-panel {
+  right: -65px;
+}
+
+.racing-mech-card:hover .main .title-badge {
+  opacity: 1;
+}
+
+.racing-mech-card:hover .main .speed-car-img {
+  transform: translateY(-10px) scale(1.18);
+  filter: drop-shadow(0 15px 25px rgba(0,0,0,0.7));
+}
